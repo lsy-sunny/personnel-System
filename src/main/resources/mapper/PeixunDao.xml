@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PeixunDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.PeixunEntity" id="peixunMap">
+        <result property="peixunbiaoti" column="peixunbiaoti"/>
+        <result property="peixunbiaozhun" column="peixunbiaozhun"/>
+        <result property="peixunrenyuanxuanbazhidu" column="peixunrenyuanxuanbazhidu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.PeixunVO" >
+		SELECT * FROM peixun  peixun         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.PeixunVO" >
+		SELECT  peixun.* FROM peixun  peixun 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.PeixunView" >
+
+		SELECT  peixun.* FROM peixun  peixun 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.PeixunView" >
+		SELECT * FROM peixun  peixun <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
